@@ -7,9 +7,8 @@ package plantsvrszombies;
  */
 public class Menu extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Menu
-     */
+    Lista jugadoresplantas = new Lista();
+    Lista jugadoreszombies = new Lista();
     
     public Menu() {
         super ("Plants Vs Zombies GUATEMALA");
@@ -17,11 +16,14 @@ public class Menu extends javax.swing.JFrame {
         setDefaultCloseOperation(3);
         setLocation(170,0);
         jPanel1.setVisible(false);
-        jButton1.enable(true);
+        jButton1.enable(true);  
+       jLabel6.setVisible(false);
         
+        
+      
+              
         
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,13 +33,12 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jButton6 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -46,6 +47,9 @@ public class Menu extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -79,21 +83,10 @@ public class Menu extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/plantsvrszombies/igual.png"))); // NOI18N
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 30, 30));
-
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Bogusflow", 1, 12)); // NOI18N
         jLabel2.setText("Tipo de Jugador:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 13, -1, -1));
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Plantas", "Zombies" }));
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 34, 92, -1));
 
         jLabel3.setBackground(new java.awt.Color(0, 0, 0));
         jLabel3.setFont(new java.awt.Font("Bogusflow", 1, 12)); // NOI18N
@@ -111,31 +104,64 @@ public class Menu extends javax.swing.JFrame {
                 jTextField2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(119, 98, 140, -1));
+        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 140, -1));
 
         jButton4.setForeground(new java.awt.Color(51, 153, 0));
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/plantsvrszombies/save_icon&16.png"))); // NOI18N
         jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, 40, 40));
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, 30, 30));
 
         jLabel5.setBackground(new java.awt.Color(0, 0, 0));
         jLabel5.setFont(new java.awt.Font("Bogusflow", 1, 12)); // NOI18N
         jLabel5.setText("OTROS:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 124, 73, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 73, -1));
 
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 124, 140, -1));
+        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 140, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(51, 102, 255));
         jLabel6.setText("Agregar mas Campos");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
+        jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel6MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 180, 280, 210));
+        buttonGroup1.add(jRadioButton1);
+        jRadioButton1.setSelected(true);
+        jRadioButton1.setText("Plantas");
+        jRadioButton1.setActionCommand("");
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, -1));
+
+        buttonGroup1.add(jRadioButton2);
+        jRadioButton2.setText("Zombies");
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, -1, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 180, 280, 200));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 400, -1, -1));
 
         jLabel1.setBackground(new java.awt.Color(204, 0, 0));
         jLabel1.setForeground(new java.awt.Color(153, 0, 0));
@@ -144,12 +170,23 @@ public class Menu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+  
+    public void limpiar(){
+   jTextField1.setText("");
+   jTextField2.setText("");
+   jTextField3.setText("");
+   }
+    
+   
+        
+       
+    
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+      
       jPanel1.setVisible(true);
       jLabel5.setVisible(false);
       jTextField3.setVisible(false);
@@ -160,19 +197,93 @@ public class Menu extends javax.swing.JFrame {
         System.exit(0); 
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-         jLabel3.enable(false);
-         jLabel4.enable(false);
-         jTextField1.enable(false);
-         jTextField2.enable(false);
-        jLabel5.setVisible(true);
-        jTextField3.setVisible(true);
-        jTextField3.setText("");
-    }//GEN-LAST:event_jButton6ActionPerformed
-
+    
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+       
+         if(jTextField3.isVisible() == false) {
+           
+         
+
+       String nombre = jTextField1.getText();
+       String cantidad = jTextField2.getText();
+         
+       
+       if (jRadioButton1.isSelected()){
+       jugadoresplantas.Insertar("Jugador Plantas");
+       jugadoresplantas.Insertar(nombre);
+       jugadoresplantas.Insertar(cantidad);
+       
+       jugadoresplantas.imprimir();
+                  
+       }
+       else{
+       jugadoreszombies.Insertar("Jugador Zombies");
+       
+       jugadoreszombies.Insertar(nombre);
+       jugadoreszombies.Insertar(cantidad);
+       
+       jugadoreszombies.imprimir();
+       }
+       
+       jLabel6.setVisible(true);
+         }
+         
+         else{
+         
+             String otros = jTextField3.getText(); 
+             if(jRadioButton1.isSelected()){
+             jugadoresplantas.Insertar(otros);
+             jugadoresplantas.imprimir();
+             }
+             if(jRadioButton2.isSelected()){
+             jugadoreszombies.Insertar(otros);
+             jugadoreszombies.imprimir();
+             }
+         
+         }
+         
+        
+       
+       
+       
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+         jLabel5.setVisible(false);
+         jTextField3.setVisible(false);
+         
+         jTextField1.enable(true);
+         jTextField2.enable(true);
+         jTextField3.enable(true);
+         
+         limpiar();
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+
+          jLabel5.setVisible(false);
+          jTextField3.setVisible(false);
+         
+         jTextField1.enable(true);
+         jTextField2.enable(true);
+         jTextField3.enable(true);
+         
+        limpiar();
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
+
+    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+       jLabel3.enable(false);
+        jLabel4.enable(false);
+        jTextField1.enable(false);
+        jTextField2.enable(false);
+        jLabel5.setVisible(true);
+        jTextField3.setVisible(true);
+        jTextField3.setText("");
+    }//GEN-LAST:event_jLabel6MouseClicked
 
     /**
      * @param args the command line arguments
@@ -209,15 +320,17 @@ public class Menu extends javax.swing.JFrame {
             }
             
         });
+        
+       
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -225,6 +338,9 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
